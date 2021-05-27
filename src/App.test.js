@@ -40,7 +40,7 @@ test('App.js tiene 1 div con texto | Asegurate de renderizar 1 div con texto den
   expect(div.first().text().trim()).not.toBe("");
 });
 
-test('App.js utiliza el hook useState | Asegurate de utilizar el hook useState dentro de App.js', () => {
+test('App.js utiliza el hook useState | Asegurate de utilizar el hook useState con la variable "tareas", setter "setTareas" y estado inicial [] dentro de App.js', () => {
   const appDefinition = App.toString()
 
   expect(appDefinition).toContain('const [tareas, setTareas] = (0, _react.useState)([]);')
@@ -53,7 +53,7 @@ test('App.js manda el prop "tareas" a TareasLista | Asegurate de que App.js mand
   expect(tareasLista.prop('tareas').length).toBe(0);
 });
 
-test('App maneja click en Añadir Tarea | Asegurate de que en App.js el boton que de agregar tareas diga "Añadir Tarea" y maneje el evento onClick con una función llamada "agregarTarea" que reciba 1 parámetro', () => {
+test('App maneja click en Añadir Tarea | Asegurate de que en App.js el boton de agregar tareas diga "Añadir Tarea" y maneje el evento onClick con una función llamada "agregarTarea" que reciba 1 parámetro', () => {
   const wrapper = shallow(<App />)
   const buttons = wrapper.find('button')
   const firstButton = buttons.at(0);
